@@ -1,11 +1,11 @@
 NOP
-MVI A,0AH
-MVI B,02H
-MVI C,00H
-LOOP:SUB B
+MVI A,0AH ; Number 1
+MVI B,02H ; Number 2
+MVI C,00H ; Set Count initial to 0
+LOOP:SUB B ; Loop
 INR C
 CMP B
 JNC LOOP
-MOV A,C
-STA 5000H
+MOV A,C ; Move result to Accumulator
+STA 5000H ; Store result in Memory
 HLT
