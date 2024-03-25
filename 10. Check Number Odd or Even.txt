@@ -1,15 +1,15 @@
 NOP
-MVI A,07H
-MVI B,02H
-LOOP:SUB B
-JM ODD
-JZ EVEN
-JP LOOP
+MVI A,07H ; Number
+MVI B,02H ; Set B->2 for checking purpose
+LOOP:SUB B ; loop subtract B(2) from A
+JM ODD ; at the end result -ve, odd
+JZ EVEN ; at the end result 0, even
+JP LOOP ; if +ve, continue to loop until -ve or 0
 
-ODD:MVI A,11H
-STA 5000H
+ODD:MVI A,11H ; load A with 11 to indicate odd result
+STA 5000H ; add it to memmory
 HLT
 
-EVEN:MVI A,22H
-STA 5000H
+EVEN:MVI A,22H ; load A with 22 to indicate even result
+STA 5000H ; add it to memory
 HLT
