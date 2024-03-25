@@ -1,9 +1,9 @@
 NOP
-MVI B,05H
-MOV C,B
-MVI A,00H
-LOOP:ADD C
-DCR B
+MVI B,05H ; Number
+MOV C,B ; copy num to counter
+MVI A,00H ; intial value of A->0
+LOOP:ADD C ; loop
+DCR B ; derement B until zero
 JNZ LOOP
-STA 5000H
+STA 5000H ; store result to memory
 HLT
