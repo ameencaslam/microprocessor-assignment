@@ -1,8 +1,8 @@
 NOP
-MVI A,03H
-MVI B,05H
-CMP B
-JC SKIP
-MOV A,B
-SKIP:STA 5000H
+MVI A,03H ; Number 1
+MVI B,05H ; Number 2
+CMP B ; Compare b (A-B)
+JC SKIP ; If result -ve, A already has smallest num
+MOV A,B ; Else B has smallest num, so move it to A
+SKIP:STA 5000H ; Store result in memory
 HLT
