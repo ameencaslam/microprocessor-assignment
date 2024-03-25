@@ -1,10 +1,10 @@
 NOP
-MVI A,02H
-MVI B,03H
-MOV C,A
-MVI A,00H
-LOOP:ADD C
+MVI A,02H ; Number 1
+MVI B,03H ; Number 2
+MOV C,A ; counter
+MVI A,00H ; Set A intial value to 0
+LOOP:ADD C ; Loop
 DCR B
 JNZ LOOP
-STA 5000H
+STA 5000H ; Store Value
 HLT
