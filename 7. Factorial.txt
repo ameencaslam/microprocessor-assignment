@@ -1,32 +1,32 @@
 NOP
-LXI D,5001H
-MVI B,24H
-MOV A,B
-STA 5000H
-DCR A
-MOV C,A
-INR A
+LXI D,5001H ; specify location to store results in H
+MVI B,24H ; Number for chacking
+MOV A,B ; store num to A
+STA 5000H ; store num to memory, as it is already a factor
+DCR A ; we use C for counting, as we stored one number already, dcr a once before storing it to a
+MOV C,A ; store a to c to use as count
+INR A ; restore a to initial value
 
-FLOOP:SUB C
-JZ SUCCESS
-JM FAILURE
-JP FLOOP
+FLOOP:SUB C ; main loop
+JZ SUCCESS ; if res 0, it means its a factor, so go to sucess
+JM FAILURE ; if res -ve, it means not factor, so got to failure
+JP FLOOP ; if res still +ve, it means num not SUB ed to the end, so repeat
 
-FAILURE:MOV A,C
+FAILURE:MOV A,C ; if failure
 CPI 01H
-JM ENDING
-DCR C
-MOV A,B
-JMP FLOOP
+JM ENDING; ondition to check if c has become 0, to end then
+DCR C ; decrement c
+MOV A,B ; move b to a to repeat the process
+JMP FLOOP ; go to floop to repeat until c becomes 0
 
-SUCCESS:MOV A,C
-STAX D
-INR E
-DCR C
-MOV A,C
+SUCCESS:MOV A,C ; if success
+STAX D ; store result to memory
+INR E ; increment memory address to store next susccess
+DCR C ; decrement count value
+MOV A,C ; to check whether c is zero
 CPI 01H
-JM ENDING
-MOV A,B
-JMP FLOOP
+JM ENDING; if res is -ve, it means c has become 0, so end the prgrm
+MOV A,B ; if c<>0 , then continue to repeat the process
+JMP FLOOP ; goto floop to repeat
 
-ENDING:HLT
+ENDING:HLT ; ending, will reach here once c becomes 0
