@@ -1,8 +1,8 @@
 NOP
-MVI A,05H
-MVI B,03H
-CMP B
-JNC SKIP
-MOV A,B
-SKIP:STA 5000H
+MVI A,05H ; Number 1
+MVI B,03H ; Number 2
+CMP B ; Compare with num2
+JNC SKIP ; if not -ve then A already has largest num
+MOV A,B ; else b has largest, so move to A
+SKIP:STA 5000H ; store result in memory
 HLT
