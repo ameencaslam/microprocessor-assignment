@@ -1,6 +1,6 @@
 NOP
 LXI D,5001H ; specify location to store results in H
-MVI B,24H ; Number for chacking
+MVI B,24H ; Number for checking
 MOV A,B ; store num to A
 STA 5000H ; store num to memory, as it is already a factor
 DCR A ; we use C for counting, as we stored one number already, dcr a once before storing it to a
